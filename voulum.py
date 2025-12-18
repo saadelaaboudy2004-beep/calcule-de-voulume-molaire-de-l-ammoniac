@@ -1,0 +1,20 @@
+import numpy as np
+p=7*10**5
+T=313.13
+Tc=405.4
+Pc=1.1353*10**(7)
+R=8.314
+ac=0.45724*((Tc**2)*(R**2)/(Pc))
+b=0.0778*((R*Tc)/Pc)
+w=0.256
+k=0.37464+1.54226*w-0.26992*w**2
+Tr=T/Tc
+alpha=(1+k*(1-Tr**0.5))**2
+aT=(ac)*(alpha)
+E=p
+F=(p*b)-(R*T)
+G=(-3*p*(b)**(2)-2*R*T*b+aT)
+H=(p*(b)**(3)+R*T*(b)**2-aT*b)
+coef=[E,F,G,H]
+soulution=np.roots(coef)
+print(soulution)
